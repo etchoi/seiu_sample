@@ -1,0 +1,37 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+
+
+<div class="container">
+
+  <div id="login_container" class="col-md-12 col-md-offset-2">
+  <% (notice.kind_of?(Array) ? notice : [notice]).each do |x| %>
+     <p><b><%= x %></b></p>
+  <% end %>
+    <div id="user_register" class="col-md-8">
+      <h4>Register here!</h4>
+       <%= simple_form_for @user, :url => '/users', :html => {:multipart => true} do |f| %>
+          <%= f.input :name, placeholder: 'Name', label: false %>
+          <%= f.input :email, placeholder: 'Email: ', label: false %>
+          <%= f.input :password, placeholder: 'Password: ', label: false, input_html: { maxlength: 20 } %>
+          <p id=password_req>(password must be 7 characters long)</p>
+          <%= f.button :submit, 'Register', class: 'btn btn-primary' %>
+       <% end %>
+
+    </div>
+
+    <div id="user_login" class="col-md-6  col-md-offset-1">
+      <h4>Already Registered? Login Here!</h4>
+      <form class="form-inline" action="/users/user_login" method="post">
+        <div class="form-group">
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+          <input type="email" class="form-control input-sm" id="login[email]" name="login[email]" placeholder="Enter email"><br>
+          <input type="password" class="form-control input-sm" id="user_password" name="login[password]" placeholder="Password"><br>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,70 @@
+<h1>Sessions#index</h1>
+<p>Find me in app/views/sessions/index.html.erb</p>
+
+<div class="container">
+  <div id="greeting">
+    <h2>Hi <%= @user.name %>!</h2>
+    <p>You have <%=@my_blog.count%> so far. Get inspired and write more.</p>
+
+  </div>
+
+  <div class="blogs">
+    <% if @my_blog %>
+      <% @my_blog.each do |b| %>
+        <div class="blog_entry">
+          <h4><%= b.title %></h4>
+          <p><%= b.content %></p>
+          <p>Written: <%= b.updated_at.strftime('%B %e, %Y') %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="all_blogs">
+    <div id="search_form">
+      <%= form_tag(sessions_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+      <% if @blogs %>
+      <div id="search_results">
+        <% @blogs.each do |b| %>
+          <div class="search_result">
+            <%= b.title %>
+            <%= b.content %>
+            <%= b.user.name %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+      </div>
+      <% end %>
+    <div class="show_all">
+      <% if @all_blog %>
+        <% @all_blog.each do |a| %>
+          <div class="search_result">
+            <%= a.title %>
+            <%= a.content %>
+            <%= a.user.name %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <% (notice.kind_of?(Array) ? notice : [notice]).each do |x| %>
+     <p><b><%= x %></b></p>
+  <% end %>
+  <div class="create_blog">
+    <form class="form-inline" action="/blogs" method="post">
+      <div class="form-group">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type="text" name="blog[title]"><br>
+        <textarea style="width: 300px; height: 150px" class="form-control input-sm" name="blog[content]" placeholder="Enter your blog here."></textarea><br>
+        <input type="hidden" class="form-control input-sm" name="blog[user]" value="<%= session[:user] %>"><br>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
