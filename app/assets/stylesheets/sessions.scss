@@ -1,3 +1,59 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.error {
+  background-color: white;
+}
+.top_row {
+  min-height: 100%;
+  border-bottom: 1px silver solid;
+  padding-bottom: 5%;
+}
+#greeting {
+  width: 40%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#create_blog {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  float: right;
+  margin-top: 3%;
+}
+#create_blog form {
+  // width: 40%;
+}
+.second_row {
+  margin-top: 7%;
+}
+#my_entries {
+  display: inline-block;
+  vertical-align: top;
+}
+.my_blog_entry {
+  background-color: #F9F9F7;
+  border: 1px silver solid;
+  border-radius: 10px;
+  padding: 3% 5% 5% 10%;
+  margin-bottom: 5%;
+}
+
+.search_result {
+  background-color: #F9F9F7;
+  border: 1px silver solid;
+  border-radius: 10px;
+  padding: 0 5% 0 10%;
+  margin-bottom: 5%;
+}
+#search_forms {
+  margin-bottom: 10%;
+}
+
+#all_blogs {
+  display: inline-block;
+  float: right;
+}

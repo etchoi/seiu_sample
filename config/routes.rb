@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   root 'users#index'
+  get '/clear_search' => 'sessions#update'
   post '/users/user_login' => 'users#user_login'
+  get '/sessions/logout' => 'sessions#destroy'
+  get '/blogs/delete/:id' => 'blogs#destroy'
   resources :sessions
   resources :users
   resources :blogs

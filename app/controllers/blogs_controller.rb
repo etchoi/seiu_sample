@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
         format.html { redirect_to "/sessions", notice: 'Your blog was successfully saved.' }
         format.json { render :show, status: :created, location: "/sessions"}
       else
-        format.html { redirect_to '/', notice: @new_blog.errors.full_messages}
+        format.html { redirect_to '/sessions', notice: @new_blog.errors.full_messages}
         format.json { render json: @new_blog.errors, status: :unprocessable_entity }
       end
     end
@@ -28,5 +28,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    Blog.find(params[:id]).destroy
+    redirect_to "/sessions"
   end
 end
