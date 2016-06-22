@@ -2,19 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.error {
-  background-color: white;
+#logout {
+  float: right;
 }
+
 .top_row {
   min-height: 100%;
   border-bottom: 1px silver solid;
   padding-bottom: 5%;
 }
+
 #greeting {
   width: 40%;
   height: 100%;
   display: inline-block;
   vertical-align: top;
+}
+
+#error_message {
+  margin: auto 0;
+  width: 50%;
+  height: 20%;
+  margin-top: 10px;
+  text-align: center;
 }
 
 #create_blog {
@@ -24,12 +34,14 @@
   float: right;
   margin-top: 3%;
 }
-#create_blog form {
-  // width: 40%;
-}
+  #create_blog input {
+    margin-bottom: 5px;
+  }
+
 .second_row {
-  margin-top: 7%;
+  margin-top: 4%;
 }
+
 #my_entries {
   display: inline-block;
   vertical-align: top;

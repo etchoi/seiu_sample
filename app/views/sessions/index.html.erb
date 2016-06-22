@@ -1,17 +1,17 @@
 
 <div class="container">
+  <a id="logout" href="/sessions/logout">Logout</a>
   <div class="top_row col-md-12 col-sm-12">
     <div id="greeting" class="col-md-6 col-sm-6">
       <h1>Hi <%= @user.name %>!</h1>
       <p>You have <%=@my_blog.count%> blog entries so far. Get inspired and write more.</p>
-      <a href="/sessions/logout">Logout</a>
-    </div>
-    <div class="error">
-      <% (notice.kind_of?(Array) ? notice : [notice]).each do |x| %>
-        <div class="bg-success">
-         <p><b><%= x %></b></p>
+      <div>
+        <% (notice.kind_of?(Array) ? notice : [notice]).each do |x| %>
+        <div id="error_message" class="bg-success">
+          <p><b><%= x %></b></p>
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
 
     <div id="create_blog" class="col-md-6 col-sm-6">
