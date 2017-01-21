@@ -4,7 +4,6 @@
   <div class="top_row col-md-12 col-sm-12">
     <div id="greeting" class="col-md-6 col-sm-6">
       <h1>Hi <%= @user.name %>!</h1>
-      <p>You have <%=@my_blog.count%> blog entries so far. Get inspired and write more.</p>
       <div>
         <% (notice.kind_of?(Array) ? notice : [notice]).each do |x| %>
         <div id="error_message" class="bg-success">
@@ -30,19 +29,9 @@
 
   <div class="second_row col-md-12">
     <div id="my_entries" class="col-md-6 col-sm-6">
-      <% if @my_blog %>
-        <h2>Your entries</h2>
-          <% @my_blog.each do |b| %>
-            <div class="my_blog_entry">
-              <h4><%= b.title %></h4>
-              <p><%= b.content %></p>
-              <p><%= b.updated_at.strftime('%A %m/%d/%y, %I:%M %p') %></p>
-              <a href="/blogs/delete/<%= b.id %>">Delete</a>
-            </div>
-          <% end %>
-      <% end %>
+      <%= react_component 'Blogs', { data: @my_blogs} %>
     </div>
-
+    
     <div id="all_blogs" class="col-md-6 col-sm-6">
       <h2>Member Blogs</h2>
       <div id="search_forms">

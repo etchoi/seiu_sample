@@ -1,3 +1,75 @@
 // Place all the styles related to the Blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#welcome {
+  text-align: center;
+  margin: 5% 0 10% 0;
+}
+  #welcome h1 {
+    font-size: 5em;
+    color: #337AB7;
+  }
+#password_req {
+  font-size: .7em;
+}
+#logout {
+  float: right;
+}
+.top_row {
+  min-height: 100%;
+  border-bottom: 1px silver solid;
+  padding-bottom: 5%;
+}
+#greeting {
+  width: 40%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+#error_message {
+  margin: auto 0;
+  width: 50%;
+  height: 20%;
+  margin-top: 10px;
+  text-align: center;
+}
+#create_blog {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  float: right;
+  margin-top: 3%;
+}
+  #create_blog input {
+    margin-bottom: 5px;
+  }
+.second_row {
+  margin-top: 4%;
+}
+#my_entries {
+  display: inline-block;
+  vertical-align: top;
+}
+.my_blog_entry {
+  background-color: #F9F9F7;
+  border: 1px silver solid;
+  border-radius: 10px;
+  padding: 3% 5% 5% 5%;
+  margin-bottom: 5%;
+}
+.search_result {
+  background-color: #F9F9F7;
+  border: 1px silver solid;
+  border-radius: 10px;
+  padding: 0 5% 0 5%;
+  margin-bottom: 5%;
+}
+#search_forms {
+  margin-bottom: 10%;
+}
+#all_blogs {
+  display: inline-block;
+  float: right;
+}
